@@ -1,8 +1,8 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -17,8 +17,21 @@ class IPokemonMetadataProviderTest {
     public void setUp() throws PokedexException {
         when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(bulbizarre);
         when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(aquali);
+        when(pokemonMetadataProvider.getPokemonMetadata(42)).thenThrow(PokedexException.class);
+    }
+    @Test
+    void outOfBoundsIndexTest(){
+        try{
+            assertThrows(PokedexException.class, getErr());
+        } catch (PokedexException pe){
+
+        }
     }
 
+    Executable getErr() throws PokedexException{
+        pokemonMetadataProvider.getPokemonMetadata(42);
+        return null;
+    }
     @Test
     void getIndexTest() throws PokedexException {
         assertEquals(bulbizarre.getIndex(), pokemonMetadataProvider.getPokemonMetadata(0).getIndex());
