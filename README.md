@@ -1,3 +1,4 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/OtmaniKhaoula/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/OtmaniKhaoula/ceri-m1-techniques-de-test/tree/master)
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 ## Introduction
