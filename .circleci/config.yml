@@ -35,6 +35,12 @@ jobs:
       - run:
           name: Test
           command: mvn test
+
+      - run:
+          name: javadoc
+          command:
+            mvn javadoc:javadoc
+
       - store_artifacts:
           path: target/site/jacoco/jacoco.xml
           destination: /tmp/artifacts
@@ -52,6 +58,19 @@ jobs:
           name: Code Coverage
           command: curl -Os https://uploader.codecov.io/latest/linux/codecov; chmod +x codecov; ./codecov  
 
+      - codecov/upload
+      - run:
+          name: deploy
+          command: |
+            git config --global user.name "OtmaniKhaoula"
+            git config --global user.email "khaoula.otmani@alumni.univ-avignon.fr"
+            git clone --branch=javadoc --depth=1 git@github.com:OtmaniKhaoula/ceri-m1-techniques-de-test.git javadoc
+            rm -rf javadoc/*
+            cp -R target/site/apidocs/* javadoc/
+            cd javadoc
+            git add .
+            git commit -m "Updating Javadoc"
+            git push origin javadoc
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
