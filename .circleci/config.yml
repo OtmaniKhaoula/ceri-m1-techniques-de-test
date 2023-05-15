@@ -35,7 +35,6 @@ jobs:
       - store_artifacts:
           path: target/site/jacoco/jacoco.xml
           destination: /tmp/artifacts
-
       - run:
           name: Upload coverage data to Codecov
           command: bash <(curl -s https://codecov.io/bash) -t ${CODECOV_TOKEN}
