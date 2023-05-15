@@ -28,12 +28,22 @@ jobs:
       - run:
           name: site
           command: mvn site
+      - run:
+          name: post
+          command: mvn post-site
       # Then run your tests!
       - run:
           name: Test
           command: mvn test
       - store_artifacts:
           path: target/site/jacoco/jacoco.xml
+          destination: /tmp/artifacts
+      - store_artifacts:
+          path: target/checkstyle-result.xml
+          destination: /tmp/artifacts
+
+      - store_artifacts:
+          path: target/site/checkstyle-result.svg
           destination: /tmp/artifacts
       - run:
           name: Upload coverage data to Codecov
