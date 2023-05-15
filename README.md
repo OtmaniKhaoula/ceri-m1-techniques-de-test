@@ -1,6 +1,8 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/OtmaniKhaoula/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/OtmaniKhaoula/ceri-m1-techniques-de-test/tree/master)
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+[![codecov](https://codecov.io/gh/OtmaniKhaoula/ceri-m1-techniques-de-test/branch/master/graph/badge.svg?token=I1R8W40GSB)](https://codecov.io/gh/OtmaniKhaoula/ceri-m1-techniques-de-test)
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
