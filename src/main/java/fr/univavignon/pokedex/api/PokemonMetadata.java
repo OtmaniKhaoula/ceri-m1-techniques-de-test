@@ -52,6 +52,7 @@ public class PokemonMetadata {
 
     /**
      * Index getter.
+     * @return index int
      **/
     public int getIndex() {
         return index;
@@ -59,6 +60,7 @@ public class PokemonMetadata {
 
     /**
      * Name getter.
+     * @return String name
      **/
     public String getName() {
         return name;
@@ -66,6 +68,7 @@ public class PokemonMetadata {
 
     /**
      * Attack level getter.
+     * @return int attack
      **/
     public int getAttack() {
         return attack;
@@ -73,6 +76,7 @@ public class PokemonMetadata {
 
     /**
      * Defense level getter.
+     * @return int defense
      **/
     public int getDefense() {
         return defense;
@@ -80,6 +84,7 @@ public class PokemonMetadata {
 
     /**
      * Stamina level getter.
+     * @return int stamina
      **/
     public int getStamina() {
         return stamina;

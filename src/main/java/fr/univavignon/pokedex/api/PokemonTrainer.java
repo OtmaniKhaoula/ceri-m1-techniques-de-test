@@ -38,6 +38,7 @@ public class PokemonTrainer {
 
     /**
      * Name getter.
+     * @return String name
      **/
     public String getName() {
         return name;
@@ -45,6 +46,7 @@ public class PokemonTrainer {
 
     /**
      * Team getter.
+     * @return Team team
      **/
     public Team getTeam() {
         return team;
@@ -52,6 +54,7 @@ public class PokemonTrainer {
 
     /**
      * Pokedex getter.
+     * @return  IPokedex pokedex
      **/
     public IPokedex getPokedex() {
         return pokedex;
