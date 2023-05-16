@@ -39,7 +39,16 @@ class IPokedexTest {
         assertEquals(thrown.getMessage(), "Pokemon not found.");
     }
 
+    @Test
+    void shouldRetunMinusOne(){
+        int index = pokedex.addPokemon(null);
+        assertEquals(index, -1);
+    }
 
+    @Test
+    void shouldGetRightMetadata() throws PokedexException {
+        assertEquals(pokedex.getPokemonMetadata(0), pokemonMetadataProvider.getPokemonMetadata(0));
+    }
     @Test
     void shouldCreateTheRightPokemon() throws PokedexException {
         Pokemon pokemon = pokedex.createPokemon(42, 1, 2, 3, 4);

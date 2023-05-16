@@ -10,23 +10,6 @@ public class PokemonFactory implements IPokemonFactory {
      * Not captured Pokemons default iv.
      */
     private static final int DEFAULT_IV = 23;
-    /**
-     * Bulbizarre's iv.
-     */
-
-    private static final int BULBIZARRE_IV = 56;
-    /**
-     * Bulbizarre's index.
-     */
-    private static final int BULBIZARRE_INDEX = 0;
-    /**
-     * Aquali's iv.
-     */
-    private static final int AQUALI_IV = 100;
-    /**
-     * Aquali's index.
-     */
-    private static final int AQUALI_INDEX = 133;
 
 
     /**
@@ -51,11 +34,6 @@ public class PokemonFactory implements IPokemonFactory {
             return null;
         }
         int iv = DEFAULT_IV;
-        if (index == BULBIZARRE_INDEX) {
-            iv = BULBIZARRE_IV;
-        } else if (index == AQUALI_INDEX) {
-            iv = AQUALI_IV;
-        }
 
         return new Pokemon(index, pokemonMetadata.getName(),
                 pokemonMetadata.getAttack(), pokemonMetadata.getDefense(),

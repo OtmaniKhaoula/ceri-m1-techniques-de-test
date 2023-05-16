@@ -15,7 +15,8 @@ class IPokemonTrainerFactoryTest {
 
     @BeforeEach
     void setUp(){
-        when(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory)).thenReturn(green);
+        when(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory)).thenReturn(new PokemonTrainer("Green", Team.MYSTIC, pokedex));
+
     }
 
     @Test
