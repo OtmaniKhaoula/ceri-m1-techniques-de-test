@@ -19,22 +19,22 @@ class IPokemonTrainerFactoryTest {
     }
 
     @Test
-    void createTrainerTest() {
+    void shouldReturnPokemonTrainer() {
         assertTrue(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory) instanceof PokemonTrainer);
     }
 
     @Test
-    void getNameTest() {
+    void shouldReturnRightName() {
         assertEquals(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory).getName(), green.getName());
     }
 
     @Test
-    void getTeamTest() {
+    void shouldReturnRightTeam() {
         assertEquals(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory).getTeam(), green.getTeam());
     }
 
     @Test
-    void getPokedexTest() {
+    void shouldReturnRightPokedex() {
         assertEquals(pokemonTrainerFactory.createTrainer("Green", Team.MYSTIC, pokedexFactory).getPokedex(), green.getPokedex());
     }
 }

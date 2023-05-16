@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 /**
  * Pokemon Trainer Factory. Implementation of IPokemonTrainerFactory.
+ *
  * @author Khaoula Otmani
  */
 public class PokemonTrainerFactory implements IPokemonTrainerFactory {
