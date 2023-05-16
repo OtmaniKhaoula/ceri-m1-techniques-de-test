@@ -68,7 +68,11 @@ public class Pokedex implements IPokedex {
      */
     @Override
     public Pokemon getPokemon(final int id) throws PokedexException {
-        return pokemonsArrayList.get(id);
+        try{
+            return pokemonsArrayList.get(id);
+        }catch (IndexOutOfBoundsException e){
+            throw new PokedexException("Pokemon not found.");
+        }
     }
 
     /**
