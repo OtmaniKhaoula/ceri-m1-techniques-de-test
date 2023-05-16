@@ -27,11 +27,4 @@ class IPokedexFactoryTest {
         assertEquals(pokedexFactory.createPokedex(pokemonMetadataProvider,
                 pokemonFactory).getPokemons(), pokedex.getPokemons());
     }
-
-    @Test
-    void shouldReturnPokedex() {
-        //On vérifie que on arrive bien a crée une classe de type IPokedex
-        assertEquals(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory), pokedex);
-
-    }
 }

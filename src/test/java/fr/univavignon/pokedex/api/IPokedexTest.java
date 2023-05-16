@@ -13,11 +13,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class IPokedexTest {
-    IPokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
+    IPokemonMetadataProvider pokemonMetadataProvider =
+            new PokemonMetadataProvider();
     IPokemonFactory pokemonFactory = new PokemonFactory();
     IPokedex pokedex;
-    Pokemon bulbizarre = new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
-    Pokemon aquali = new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 5, 1000);
+    Pokemon bulbizarre =
+            new Pokemon(0, "Bulbizarre", 126, 126, 90, 613, 64, 4000, 4, 56);
+    Pokemon aquali =
+            new Pokemon(133, "Aquali", 186, 168, 260, 2729, 202, 5000, 5, 1000);
     List<Pokemon> pokemonList = new ArrayList<>();
 
     @BeforeEach
@@ -28,15 +31,14 @@ class IPokedexTest {
     }
 
     @Test
-    void shouldThrowPokedexException()
-            throws PokedexException {
-        assertThrows(PokedexException.class, getErr());
+    void shouldThrowPokedexException() {
+        Exception thrown = assertThrows(PokedexException.class, () -> {
+            pokedex.getPokemon(-1);
+        });
+
+        assertEquals(thrown.getMessage(), "Pokemon not found.");
     }
 
-    Executable getErr() throws PokedexException {
-        pokedex.getPokemon(-1);
-        return null;
-    }
 
     @Test
     void shouldCreateTheRightPokemon() throws PokedexException {
@@ -48,6 +50,7 @@ class IPokedexTest {
         assertEquals(pokemon.getDust(), 3);
         assertEquals(pokemon.getCandy(), 4);
     }
+
     @Test
     void shouldReturnSameSize() {
         assertEquals(pokedex.size(), pokemonList.size());
@@ -66,8 +69,10 @@ class IPokedexTest {
         assertEquals(pokedex.getPokemon(0).getIndex(), bulbizarre.getIndex());
         assertEquals(pokedex.getPokemon(0).getName(), bulbizarre.getName());
         assertEquals(pokedex.getPokemon(0).getAttack(), bulbizarre.getAttack());
-        assertEquals(pokedex.getPokemon(0).getDefense(), bulbizarre.getDefense());
-        assertEquals(pokedex.getPokemon(0).getStamina(), bulbizarre.getStamina());
+        assertEquals(pokedex.getPokemon(0).getDefense(),
+                bulbizarre.getDefense());
+        assertEquals(pokedex.getPokemon(0).getStamina(),
+                bulbizarre.getStamina());
         assertEquals(pokedex.getPokemon(0).getCp(), bulbizarre.getCp());
         assertEquals(pokedex.getPokemon(0).getCandy(), bulbizarre.getCandy());
         assertEquals(pokedex.getPokemon(0).getDust(), bulbizarre.getDust());
@@ -91,11 +96,13 @@ class IPokedexTest {
     void shouldReturnListOrderedByIndexAndByNames() {
         pokemonList.add(aquali);
         pokedex.addPokemon(aquali);
-        assertEquals(pokemonList, pokedex.getPokemons(PokemonComparators.INDEX));
+        assertEquals(pokemonList,
+                pokedex.getPokemons(PokemonComparators.INDEX));
         ArrayList<Pokemon> pokemonsOrderedByName = new ArrayList<>();
         pokemonsOrderedByName.add(aquali);
         pokemonsOrderedByName.add(bulbizarre);
-        assertEquals(pokemonsOrderedByName, pokedex.getPokemons(PokemonComparators.NAME));
+        assertEquals(pokemonsOrderedByName,
+                pokedex.getPokemons(PokemonComparators.NAME));
     }
 
 }
