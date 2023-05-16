@@ -35,23 +35,25 @@ public class PokemonMetadata {
     /**
      * Default constructor.
      *
-     * @param index   Pokemon index.
-     * @param name    Pokemon name.
-     * @param attack  Attack level.
-     * @param defense Defense level.
-     * @param stamina Stamina level.
+     * @param index1   Pokemon index.
+     * @param name1    Pokemon name.
+     * @param attack1  Attack level.
+     * @param defense1 Defense level.
+     * @param stamina1 Stamina level.
      */
-    public PokemonMetadata(final int index, final String name, final int attack,
-                           final int defense, final int stamina) {
-        this.index = index;
-        this.name = name;
-        this.attack = attack;
-        this.defense = defense;
-        this.stamina = stamina;
+    public PokemonMetadata(final int index1, final String name1,
+                           final int attack1,
+                           final int defense1, final int stamina1) {
+        this.index = index1;
+        this.name = name1;
+        this.attack = attack1;
+        this.defense = defense1;
+        this.stamina = stamina1;
     }
 
     /**
      * Index getter.
+     *
      * @return index int
      **/
     public int getIndex() {
@@ -60,6 +62,7 @@ public class PokemonMetadata {
 
     /**
      * Name getter.
+     *
      * @return String name
      **/
     public String getName() {
@@ -68,6 +71,7 @@ public class PokemonMetadata {
 
     /**
      * Attack level getter.
+     *
      * @return int attack
      **/
     public int getAttack() {
@@ -76,6 +80,7 @@ public class PokemonMetadata {
 
     /**
      * Defense level getter.
+     *
      * @return int defense
      **/
     public int getDefense() {
@@ -84,6 +89,7 @@ public class PokemonMetadata {
 
     /**
      * Stamina level getter.
+     *
      * @return int stamina
      **/
     public int getStamina() {

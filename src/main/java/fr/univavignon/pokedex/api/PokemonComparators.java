@@ -32,10 +32,10 @@ public enum PokemonComparators implements Comparator<Pokemon> {
     /**
      * Default constructor.
      *
-     * @param delegate Delegate comparator instance.
+     * @param delegate1 Delegate comparator instance.
      */
-    private PokemonComparators(final Comparator<Pokemon> delegate) {
-        this.delegate = delegate;
+    PokemonComparators(final Comparator<Pokemon> delegate1) {
+        this.delegate = delegate1;
     }
 
     /**

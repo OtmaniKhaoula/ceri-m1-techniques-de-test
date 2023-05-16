@@ -35,38 +35,39 @@ public final class Pokemon extends PokemonMetadata {
     /**
      * Default constructor.
      *
-     * @param index   Pokemon index.
-     * @param name    Pokemon name.
-     * @param attack  Attack level.
-     * @param defense Defense level.
-     * @param stamina Stamina level.
-     * @param cp      Pokemon cp.
-     * @param hp      Pokemon hp.
-     * @param dust    Required dust for upgrading this pokemon.
-     * @param candy   Required candy for upgrading this pokemon.
-     * @param iv      IV perfection percentage.
+     * @param index1   Pokemon index.
+     * @param name1    Pokemon name.
+     * @param attack1  Attack level.
+     * @param defense1 Defense level.
+     * @param stamina1 Stamina level.
+     * @param cp1      Pokemon cp.
+     * @param hp1      Pokemon hp.
+     * @param dust1    Required dust for upgrading this pokemon.
+     * @param candy1   Required candy for upgrading this pokemon.
+     * @param iv1      IV perfection percentage.
      */
     public Pokemon(
-            final int index,
-            final String name,
-            final int attack,
-            final int defense,
-            final int stamina,
-            final int cp,
-            final int hp,
-            final int dust,
-            final int candy,
-            final double iv) {
-        super(index, name, attack, defense, stamina);
-        this.cp = cp;
-        this.hp = hp;
-        this.dust = dust;
-        this.candy = candy;
-        this.iv = iv;
+            final int index1,
+            final String name1,
+            final int attack1,
+            final int defense1,
+            final int stamina1,
+            final int cp1,
+            final int hp1,
+            final int dust1,
+            final int candy1,
+            final double iv1) {
+        super(index1, name1, attack1, defense1, stamina1);
+        this.cp = cp1;
+        this.hp = hp1;
+        this.dust = dust1;
+        this.candy = candy1;
+        this.iv = iv1;
     }
 
     /**
      * Combat Point getter getter.
+     *
      * @return int cp
      **/
     public int getCp() {
@@ -75,6 +76,7 @@ public final class Pokemon extends PokemonMetadata {
 
     /**
      * HP getter.
+     *
      * @return int hp
      **/
     public int getHp() {
@@ -83,6 +85,7 @@ public final class Pokemon extends PokemonMetadata {
 
     /**
      * Dust getter.
+     *
      * @return int dust
      **/
     public int getDust() {
@@ -91,6 +94,7 @@ public final class Pokemon extends PokemonMetadata {
 
     /**
      * Candy getter.
+     *
      * @return int candy
      **/
     public int getCandy() {
@@ -99,6 +103,7 @@ public final class Pokemon extends PokemonMetadata {
 
     /**
      * IV getter.
+     *
      * @return double iv
      **/
     public double getIv() {

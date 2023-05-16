@@ -3,41 +3,80 @@ package fr.univavignon.pokedex.api;
 import java.util.ArrayList;
 
 /**
- * Pokemon metadata provider
+ * Pokemon metadata provider. Implementation of IPokemonMetadataProver.
+ *
+ * @author Khaoula Otmani
  */
-public class PokemonMetadataProvider implements IPokemonMetadataProvider{
+public class PokemonMetadataProvider implements IPokemonMetadataProvider {
+    /**
+     * pokemonMetadataArrayList contains the metadata of all Pokemons.
+     */
+
     private ArrayList<PokemonMetadata> pokemonMetadataArrayList;
+    /**
+     * Bulbizarre's index.
+     */
+    private static final int BULBIZARRE_INDEX = 0;
+    /**
+     * Aquali's index.
+     */
+    private static final int AQUALI_INDEX = 133;
+    /**
+     * Min Pokemon's index.
+     */
+    private static final int MAX_INDEX = 150;
+    /**
+     * Max Pokemon's index.
+     */
+    private static final int MIN_INDEX = 0;
 
-    public PokemonMetadataProvider(){
+    /**
+     *
+     */
+    public PokemonMetadataProvider() {
         pokemonMetadataArrayList = new ArrayList<>();
+        final int bulbizarreAttack = 126;
+        final int bulbizarreDefense = 126;
+        final int bulbizarreStamina = 90;
+        PokemonMetadata bulbizarre =
+                new PokemonMetadata(BULBIZARRE_INDEX, "Bulbizarre",
+                        bulbizarreAttack, bulbizarreDefense,
+                        bulbizarreStamina);
 
-        PokemonMetadata bulbizarre = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
-        PokemonMetadata aquali = new PokemonMetadata(133, "Aquali", 186, 168, 260);
+        final int aqualiAttack = 186;
+        final int aqualiDefense = 168;
+        final int aqualiStamina = 260;
 
-        for (int i = 0; i <= 150; i++){
-            if(i == 0){
+        PokemonMetadata aquali =
+                new PokemonMetadata(AQUALI_INDEX, "Aquali", aqualiAttack,
+                        aqualiDefense, aqualiStamina);
+
+        for (int i = MIN_INDEX; i <= MAX_INDEX; i++) {
+            if (i == BULBIZARRE_INDEX) {
                 pokemonMetadataArrayList.add(bulbizarre);
-            }else if (i == 133){
+            } else if (i == AQUALI_INDEX) {
                 pokemonMetadataArrayList.add(aquali);
-            }else{
-                pokemonMetadataArrayList.add(new PokemonMetadata(i, "anonymous", 0, 0, 0));
+            } else {
+                pokemonMetadataArrayList.add(
+                        new PokemonMetadata(i, "not captured yet", 0, 0, 0));
             }
         }
     }
 
     /**
-     * Returns the pokemon at a given index
+     * Returns the Pokemon at a given index.
+     *
      * @param index Index of the pokemon to retrieve metadata for.
      * @return PokemonMetadata
      * @throws PokedexException
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index)
+    public PokemonMetadata getPokemonMetadata(final int index)
             throws PokedexException {
-        if (index >= 0 && index <= 150){
+        if (index >= MIN_INDEX && index <= MAX_INDEX) {
             return pokemonMetadataArrayList.get(index);
         }
-        throw new PokedexException("There is no pokemon with that id.+" +
-                " Please enter an index between 0 and 150.");
+        throw new PokedexException(
+                "Pokemon's indexes are between 0 and 150.");
     }
 }

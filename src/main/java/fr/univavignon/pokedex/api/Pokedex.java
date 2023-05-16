@@ -5,22 +5,43 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Pokedex class
+ * Pokedex class. Implementation of the IPokedex interface.
+ *
+ * @author Khaoula Otmani
  */
-public class Pokedex implements IPokedex{
+public class Pokedex implements IPokedex {
+    /**
+     * pokemonArrayList stores all Pokemon in the Pokedex.
+     */
     private final ArrayList<Pokemon> pokemonsArrayList;
+
+    /**
+     * pokemonMetaDataPrive provides metadata information
+     * for all pokemons.
+     */
     private final IPokemonMetadataProvider pokemonMetadataProvider;
+    /**
+     * pokemonFactory creates Pokemon to add to the Pokedex.
+     */
     private final IPokemonFactory pokemonFactory;
 
-    public Pokedex(IPokemonMetadataProvider pokemonMetadataProvider, IPokemonFactory pokemonFactory){
-        this.pokemonFactory = pokemonFactory;
-        this.pokemonMetadataProvider = pokemonMetadataProvider;
+    /**
+     * Constructs a new Pokedex.
+     *
+     * @param pokemonMetadataProvider1
+     * @param pokemonFactory1
+     */
+    public Pokedex(final IPokemonMetadataProvider pokemonMetadataProvider1,
+                   final IPokemonFactory pokemonFactory1) {
+        this.pokemonFactory = pokemonFactory1;
+        this.pokemonMetadataProvider = pokemonMetadataProvider1;
         this.pokemonsArrayList = new ArrayList<>();
     }
 
     /**
-     * parameters: none
-     * @return int size of the pokedex
+     * Returns the number of Pokemons in the Pokedex.
+     *
+     * @return int size of the Pokedex.
      */
     @Override
     public int size() {
@@ -32,27 +53,25 @@ public class Pokedex implements IPokedex{
      * @return index of the newly added pokemon or -1 if fail
      */
     @Override
-    public int addPokemon(Pokemon pokemon) {
-        if(pokemon != null){
+    public int addPokemon(final Pokemon pokemon) {
+        if (pokemon != null) {
             pokemonsArrayList.add(pokemon);
-            return pokemonsArrayList.size()-1;
+            return pokemonsArrayList.size() - 1;
         }
         return -1;
     }
 
     /**
-     *
      * @param id Unique pokedex relative identifier.
      * @return pokemon at position id
      * @throws PokedexException
      */
     @Override
-    public Pokemon getPokemon(int id) throws PokedexException {
+    public Pokemon getPokemon(final int id) throws PokedexException {
         return pokemonsArrayList.get(id);
     }
 
     /**
-     *
      * @return all pokemons arrayList
      */
     @Override
@@ -60,15 +79,19 @@ public class Pokedex implements IPokedex{
         return pokemonsArrayList;
     }
 
+    /**
+     * @param order Comparator instance used for sorting the created view.
+     * @return
+     */
+
     @Override
-    public List<Pokemon> getPokemons(Comparator<Pokemon> order) {
+    public List<Pokemon> getPokemons(final Comparator<Pokemon> order) {
         ArrayList<Pokemon> pokemons = new ArrayList<>(pokemonsArrayList);
         pokemons.sort(order);
         return pokemons;
     }
 
     /**
-     *
      * @param index Pokemon index.
      * @param cp    Pokemon CP.
      * @param hp    Pokemon HP.
@@ -77,19 +100,19 @@ public class Pokedex implements IPokedex{
      * @return Pokemon
      */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust,
-                                 int candy) {
+    public Pokemon createPokemon(final int index, final int cp, final int hp,
+                                 final int dust,
+                                 final int candy) {
         return pokemonFactory.createPokemon(index, cp, hp, dust, candy);
     }
 
     /**
-     *
      * @param index Index of the pokemon to retrieve metadata for.
      * @return PokemonMetadata
      * @throws PokedexException
      */
     @Override
-    public PokemonMetadata getPokemonMetadata(int index)
+    public PokemonMetadata getPokemonMetadata(final int index)
             throws PokedexException {
         return pokemonMetadataProvider.getPokemonMetadata(index);
     }

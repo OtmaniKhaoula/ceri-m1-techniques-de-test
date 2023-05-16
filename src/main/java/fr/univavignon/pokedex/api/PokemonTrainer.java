@@ -25,19 +25,20 @@ public class PokemonTrainer {
     /**
      * Default constructor.
      *
-     * @param name    Trainer name.
-     * @param team    Trainer team.
-     * @param pokedex Trainer pokedex.
+     * @param name1    Trainer name.
+     * @param team1    Trainer team.
+     * @param pokedex1 Trainer pokedex.
      */
-    public PokemonTrainer(final String name, final Team team,
-                          final IPokedex pokedex) {
-        this.name = name;
-        this.team = team;
-        this.pokedex = pokedex;
+    public PokemonTrainer(final String name1, final Team team1,
+                          final IPokedex pokedex1) {
+        this.name = name1;
+        this.team = team1;
+        this.pokedex = pokedex1;
     }
 
     /**
      * Name getter.
+     *
      * @return String name
      **/
     public String getName() {
@@ -46,6 +47,7 @@ public class PokemonTrainer {
 
     /**
      * Team getter.
+     *
      * @return Team team
      **/
     public Team getTeam() {
@@ -54,7 +56,8 @@ public class PokemonTrainer {
 
     /**
      * Pokedex getter.
-     * @return  IPokedex pokedex
+     *
+     * @return IPokedex pokedex
      **/
     public IPokedex getPokedex() {
         return pokedex;

@@ -1,18 +1,19 @@
 package fr.univavignon.pokedex.api;
 
 /**
- * Pokedex Factoy
+ * Pokedex Factoy. Is the implementation of IPokdexFacory.
+ * @author Khaoula Otmani
  */
-public class PokedexFactory implements IPokedexFactory{
+public class PokedexFactory implements IPokedexFactory {
     /**
-     *
      * @param metadataProvider Metadata provider the created pokedex will use.
      * @param pokemonFactory   Pokemon factory the created pokedex will use.
      * @return Pokedex
      */
     @Override
-    public IPokedex createPokedex(IPokemonMetadataProvider metadataProvider,
-                                  IPokemonFactory pokemonFactory) {
+    public IPokedex createPokedex(
+            final IPokemonMetadataProvider metadataProvider,
+            final IPokemonFactory pokemonFactory) {
         return new Pokedex(metadataProvider, pokemonFactory);
     }
 

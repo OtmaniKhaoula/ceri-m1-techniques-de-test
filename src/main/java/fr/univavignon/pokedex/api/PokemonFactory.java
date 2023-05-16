@@ -1,11 +1,37 @@
 package fr.univavignon.pokedex.api;
 
 /**
- * Pokemon factory
+ * Pokemon factory. Implementation of IPokemonFactory.
+ *
+ * @author Khaoula Otmani
  */
-public class PokemonFactory implements IPokemonFactory{
+public class PokemonFactory implements IPokemonFactory {
     /**
-     * Creates and returns a new pokemon
+     * Not captured Pokemons default iv.
+     */
+    private static final int DEFAULT_IV = 23;
+    /**
+     * Bulbizarre's iv.
+     */
+
+    private static final int BULBIZARRE_IV = 56;
+    /**
+     * Bulbizarre's index.
+     */
+    private static final int BULBIZARRE_INDEX = 0;
+    /**
+     * Aquali's iv.
+     */
+    private static final int AQUALI_IV = 100;
+    /**
+     * Aquali's index.
+     */
+    private static final int AQUALI_INDEX = 133;
+
+
+    /**
+     * Creates and returns a new Pokemon.
+     *
      * @param index Pokemon index.
      * @param cp    Pokemon CP.
      * @param hp    Pokemon HP.
@@ -14,19 +40,22 @@ public class PokemonFactory implements IPokemonFactory{
      * @return Pokemon
      */
     @Override
-    public Pokemon createPokemon(int index, int cp, int hp, int dust,
-                                 int candy) {
+    public Pokemon createPokemon(final int index, final int cp, final int hp,
+                                 final int dust,
+                                 final int candy) {
         PokemonMetadata pokemonMetadata;
-        try{
-            pokemonMetadata = new PokemonMetadataProvider().getPokemonMetadata(index);
-        }catch (PokedexException pe){
+        try {
+            pokemonMetadata =
+                    new PokemonMetadataProvider().getPokemonMetadata(index);
+        } catch (PokedexException pe) {
             return null;
         }
-        int iv = 23;
-        if (index == 0)
-            iv = 56;
-        else if (index == 133)
-            iv = 133;
+        int iv = DEFAULT_IV;
+        if (index == BULBIZARRE_INDEX) {
+            iv = BULBIZARRE_IV;
+        } else if (index == AQUALI_INDEX) {
+            iv = AQUALI_IV;
+        }
 
         return new Pokemon(index, pokemonMetadata.getName(),
                 pokemonMetadata.getAttack(), pokemonMetadata.getDefense(),
