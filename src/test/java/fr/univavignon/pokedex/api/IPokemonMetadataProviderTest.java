@@ -16,9 +16,19 @@ class IPokemonMetadataProviderTest {
             new PokemonMetadataProvider();
 
     @Test
-    void shouldThrowPokedexException() {
+    void shouldThrowPokedexExceptionBecauseOfLowerBound() {
         Exception thrown = assertThrows(PokedexException.class, () -> {
             pokemonMetadataProvider.getPokemonMetadata(-1);
+        });
+
+        assertEquals(thrown.getMessage(),
+                "Pokemon's indexes are between 0 and 150.");
+    }
+
+    @Test
+    void shouldThrowPokedexExceptionBecausOfUpperBound() {
+        Exception thrown = assertThrows(PokedexException.class, () -> {
+            pokemonMetadataProvider.getPokemonMetadata(151);
         });
 
         assertEquals(thrown.getMessage(),
